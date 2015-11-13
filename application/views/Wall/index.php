@@ -32,8 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="col-xs-6 col-sm-3 sidebar-offcanvas fixed" id="sidebar">
 			<div class="list-group">
 				<a href="/user/" class="list-group-item active">用户列表</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
+				<a href="/wall/index" class="list-group-item">壁纸干货</a>
 				<a href="#" class="list-group-item">Link</a>
 				<a href="#" class="list-group-item">Link</a>
 				<a href="#" class="list-group-item">Link</a>
