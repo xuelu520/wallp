@@ -20,11 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		if($this->cache->get('wallp')){
-
-		}
-		$this->cache->save('wallp', "hello redis",30);
-		$this->load-
 		$this->load->view('welcome_message');
 	}
 }
