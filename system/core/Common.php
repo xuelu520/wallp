@@ -843,4 +843,17 @@ if ( ! function_exists('function_usable'))
 
 		return FALSE;
 	}
+
+	/**
+	 * 格式化输出json数据
+	 * @param $status string 状态码
+	 * @param $msg string 信息
+	 * @param array $data {'status':'1','msg':'成功','data':array}
+	 */
+	function out($status, $msg, array $data = []){
+		echo json_encode(['status'=>$status,
+			'msg' => $msg,
+			'data' => $data]);
+
+	}
 }
