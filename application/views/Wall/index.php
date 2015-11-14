@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="/">用户主页</a></li>
-				<li><a href="/">后台</a></li>
+				<li><a href="/login/logout">登出系统</a></li>
 			</ul>
 		</div><!-- /.nav-collapse -->
 	</div><!-- /.container -->
