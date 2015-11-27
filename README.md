@@ -16,9 +16,11 @@
 数据库操作
 
 >执行/sql/wallp.sql
->插入管理员账号
+
+插入管理员账号
 ```sql
 INSERT INTO admins (username,pwd,create_time) VALUES ('admin','e10adc3949ba59abbe56e057f20f883e','1447487000');
 ```
 后台ADMIN 账号：admin,密码：123456
+
 移动端计划中...欢迎大家加入。
