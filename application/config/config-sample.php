@@ -514,4 +514,4 @@ define("UPYUN_BUCKET",   "空间名称");
 define("UPYUN_USERNAME", "操作员名称");
 define("UPYUN_PWD",      "密码");
 
-define("UPYUN_URL","空间域名"); //域名
+define("UPYUN_URL","空间域名"); //空间域名
