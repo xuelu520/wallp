@@ -77,8 +77,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		});
 	});
 
+	/**
+	 * 上传预览
+	 * @param file
+	 */
 	function preview(file){
-//		var file = ifile.files[0];
 		if(window.FileReader) {
 			var fr = new FileReader();
 			fr.onload = function(e) {
@@ -95,6 +98,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 	}
 
+	/**
+	 * 上传
+	 * @param ifile
+	 * @returns {boolean}
+	 */
 	function upload(ifile){
 		var data = new FormData();
 		data.append('file', ifile);
@@ -109,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if (ret.status == 'success') {
 //				$('#pic_url').val(ret.data.url);
 			}else{
-				alert("上传失败");
+				console.log(ret.msg);
 			}
 		});
 		return false;

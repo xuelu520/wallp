@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 
 	/**
-	 * µÇÂ¼Ò³Ãæ£¬Èç¹ûÒÑ¾­µÇÂ½¹ý£¬ÔòÖØ¶¨Ïòµ½ ºóÌ¨¹ÜÀíÖ÷Ò³ /wall
+	 * ç™»å½•é¡µé¢ï¼Œå¦‚æžœç™»å½•è¿‡åˆ™é‡å®šå‘åˆ°å£çº¸ç®¡ç†
 	 */
 	public function index(){
 		if(@$_SESSION['admin:id']){
@@ -14,12 +14,12 @@ class Login extends CI_Controller {
 	}
 
 	/**
-	 * ÑéÖ¤µÇÂ¼
+	 * å¤„ç†ç™»å½•
 	 */
 	public function login_action(){
 		$username = $_POST['username'];
 		$pwd = $_POST['pwd'];
-		$this->load->model('admin');
+		$this->load->model('admin_model','admin');
 		$admin = $this->admin->one($username, $pwd);
 		if($admin){
 			$_SESSION['admin:id'] = $admin['id'];
@@ -33,7 +33,7 @@ class Login extends CI_Controller {
 	}
 
 	/**
-	 * µÇ³öÏµÍ³£¬Çå¿Õsession,ÖØ¶¨Ïòµ½login
+	 * ç™»å‡º
 	 */
 	public function logout(){
 		session_unset();

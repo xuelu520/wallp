@@ -5,7 +5,8 @@
  * Date: 2015/11/14
  * Time: 17:20
  */
-class Admin extends CI_Model {
+class Admin_Model extends CI_Model {
+    const TABLE_ADMINS = "admins";
     public function __construct()
     {
         // Call the CI_Model constructor
@@ -22,7 +23,7 @@ class Admin extends CI_Model {
      */
     public function one($username, $pwd)
     {
-        $query = $this->db->get_where('admins',array('username'=>$username,'pwd'=>md5($pwd)));
+        $query = $this->db->get_where(self::TABLE_ADMINS, array('username'=>$username,'pwd'=>md5($pwd)));
         $row = $query->row_array();
         return $row;
     }
