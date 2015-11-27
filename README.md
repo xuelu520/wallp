@@ -23,4 +23,5 @@ INSERT INTO admins (username,pwd,create_time) VALUES ('admin','e10adc3949ba59abb
 ```
 后台ADMIN 账号：admin,密码：123456
 
-移动端计划中...欢迎大家加入。
+移动端计划中...欢迎大家加入。  
+  makyu | 871110792@qq.com
