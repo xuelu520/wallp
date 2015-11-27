@@ -17,8 +17,28 @@ class Wall extends MY_Controller{
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    public function index()
-    {
+    public function index() {
         $this->load->view('/wall/index');
+    }
+
+    public function add() {
+        $this->load->view('/wall/add');
+    }
+
+    /**
+     * 上传接口
+     */
+    public function upload() {
+        if ($_FILES["file"]["error"] > 0){
+            echo json_encode(['status'=>'fail','msg'=>'上传错误']);exit;
+        }else {
+            if (!file_exists("images/" . $_FILES["file"]["name"])) {
+                move_uploaded_file($_FILES["file"]["tmp_name"], "images/" . $_FILES["file"]["name"]);
+            }
+            $url = "/images/" . $_FILES["file"]["name"];
+            echo json_encode(['status' => 'success', "msg" => "upload success", "data" => ['url' => $url]]);
+            //array(,,)
+            exit;
+        }
     }
 }

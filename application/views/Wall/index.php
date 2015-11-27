@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="list-group">
 				<a href="/user/" class="list-group-item active">用户列表</a>
 				<a href="/wall/index" class="list-group-item">壁纸干货</a>
-				<a href="#" class="list-group-item">Link</a>
+				<a href="/wall/add" class="list-group-item">上传</a>
 				<a href="#" class="list-group-item">Link</a>
 				<a href="#" class="list-group-item">Link</a>
 				<a href="#" class="list-group-item">Link</a>
