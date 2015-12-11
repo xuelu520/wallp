@@ -21,8 +21,17 @@ class Wall_Model extends CI_Model {
      * @param $wall
      * @return mixed
      */
-    public function add($wall)
-    {
+    public function add($wall) {
         return $this->db->insert(self::TABLE_WALLS,$wall);
+    }
+
+    /**
+     * 查询管理员 上传的壁纸
+     * @param $admin_id int 管理的ID
+     * @return mixed  array object壁纸列表
+     */
+    function getList($admin_id) {
+        $sql = "SELECT * FROM walls WHERE uid = ? and status = 1";
+        return $this->db->query($sql,[$admin_id])->result();
     }
 }

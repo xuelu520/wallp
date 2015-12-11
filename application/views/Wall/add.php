@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			var fr = new FileReader();
 			fr.onload = function(e) {
 				console.log(e.target.result);
-				var div = $('<div class="col-xs-6 col-md-3" class="img_prev"></div>');
+				var div = $('<div class="col-xs-6 col-md-3 img_prev"></div>');
 				var a = $('<a href="javascript:void(0);" class="thumbnail"></a>');
 				var img = $('<img alt="预览图">');
 				img.attr('src',e.target.result);

@@ -19,7 +19,10 @@ class Wall extends MY_Controller{
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
     public function index() {
-        $this->load->view('/wall/index');
+        $this->load->model('wall_model','wall');
+        $admin_id = $_SESSION['admin:id'];
+        $walls = $this->wall->getList($admin_id);
+        $this->load->view('/wall/index',['walls'=>$walls]);
     }
 
     public function add() {
