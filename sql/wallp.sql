@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-11 16:59:56
+-- Generation Time: 2015-12-13 12:10:48
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
@@ -95,8 +95,45 @@ CREATE TABLE IF NOT EXISTS `wgroup` (
   `name` varchar(255) NOT NULL COMMENT '套图名称',
   `create_time` int(11) NOT NULL COMMENT '创建时间',
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '有效状态：0-无效，1-有效',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COMMENT='套图表' AUTO_INCREMENT=1 ;
+  `admin_uid` int(11) NOT NULL COMMENT '管理员ID',
+  `admin_name` varchar(255) NOT NULL COMMENT '管理员名称',
+  PRIMARY KEY (`id`),
+  KEY `admin_uid` (`admin_uid`,`admin_name`(191))
+) ENGINE=InnoDB  DEFAULT CHARSET=utf32 COMMENT='套图表' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `wgroup`
+--
+
+INSERT INTO `wgroup` (`id`, `name`, `create_time`, `status`, `admin_uid`, `admin_name`) VALUES
+(1, '主页巨无霸轮播', 1449851776, 1, 1, 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `wg_items`
+--
+
+CREATE TABLE IF NOT EXISTS `wg_items` (
+  `wg_id` int(11) NOT NULL COMMENT '套图ID',
+  `wall_id` int(11) NOT NULL COMMENT '壁纸ID',
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '有效状态：1-有效，0-无效',
+  KEY `wg_id` (`wg_id`,`wall_id`,`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='套图对应壁纸';
+
+--
+-- 转存表中的数据 `wg_items`
+--
+
+INSERT INTO `wg_items` (`wg_id`, `wall_id`, `status`) VALUES
+(1, 11, 1),
+(1, 12, 1),
+(1, 13, 1),
+(1, 14, 1),
+(1, 15, 1),
+(1, 16, 1),
+(1, 17, 1),
+(1, 18, 1);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
