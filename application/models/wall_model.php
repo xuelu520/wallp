@@ -31,7 +31,7 @@ class Wall_Model extends CI_Model {
      * @return mixed  array object壁纸列表
      */
     function getList($admin_id) {
-        $sql = "SELECT * FROM walls WHERE uid = ? and status = 1";
+        $sql = "SELECT * FROM walls WHERE uid = ? and status = 1 ORDER BY create_time DESC";
         return $this->db->query($sql,[$admin_id])->result();
     }
 }
