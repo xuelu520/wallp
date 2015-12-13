@@ -5,7 +5,7 @@
 
 ##环境配置
 >php5.5 + mysql + redis  
->php框架采用 codeigniter3,第三方类库采用conposer。
+>php框架采用 codeigniter3,第三方类库采用conposer管理。
 >壁纸存储方案采用又拍云-云存储，本地数据库只存图片链接。
 >前端登录采用QQ登录以及微信登录，暂时不准备用自己的注册系统。
 
