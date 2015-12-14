@@ -12,6 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="/public/js/offcanvas.js"></script>
 	<link href="/public/css/offcanvas.css" rel="stylesheet">
+	<link href="/public/css/public.css" rel="stylesheet">
 <body>
 <nav class="navbar navbar-fixed-top navbar-inverse">
 	<div class="container">
@@ -71,7 +72,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</td>
 								<td>
 									<a class="wg-detail" href="javascript:;" data-wgid="<?=$wg->id?>">[详细]</a>
-									|
 									<a href="javascript:;">编辑</a>
 								</td>
 							</tr>
@@ -91,17 +91,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Modal title</h4>
+				<h3 class="modal-title" id="title">Loading...</h3>
 			</div>
 				<div class="row" id="loading">
 					<p><h2>Loading...</h2></p>
 				</div>
-				<div class="row" id="image_preview" style="display: none;">
+				<div class="row wpview"  >
+					<ul id="image_preview" style="display: none;">
+
+					</ul>
 				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
@@ -120,15 +119,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}).then(function(data){
 				if(data.status == 'success'){
 					var urls = data.data.items;
+					$('#title').empty();
 					$('#image_preview').empty();
+					$('#title').html(data.data.name);
 					for(var i=0; i<urls.length; ++i){
-						var div = $('<div class="col-xs-6 col-md-3 img_prev"></div>');
-						var a = $('<a href="javascript:void(0);" class="thumbnail"></a>');
+						var li = $('<li></li>');
+						var a = $('<a href="<?=UPYUN_URL?>'+urls[i]['url']+'\" target="_blank"></a>');
 						var img = $('<img alt="预览图">');
 						img.attr('src',"<?=UPYUN_URL?>"+urls[i]['url']+"<?=THUMB?>");
 						a.append(img);
-						div.append(a);
-						$('#image_preview').append(div);
+						li.append(a);
+						$('#image_preview').append(li);
 					}
 				}else{
 					var p = $("<p>"+data.msg+"</p>");

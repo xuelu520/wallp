@@ -54,8 +54,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 			</div>
-			<div class="row" id="image_preview">
+			<div class="row wpview">
+				<ul id="image_preview">
 
+				</ul>
 			</div>
 		</div><!--/.col-xs-12.col-sm-9-->
 	</div><!--/row-->
@@ -86,13 +88,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			var fr = new FileReader();
 			fr.onload = function(e) {
 				console.log(e.target.result);
-				var div = $('<div class="col-xs-6 col-md-3 img_prev"></div>');
-				var a = $('<a href="javascript:void(0);" class="thumbnail"></a>');
+				var li = $('<li></li>');
+				var a = $('<a href="javascript:void(0);" ></a>');
 				var img = $('<img alt="预览图">');
 				img.attr('src',e.target.result);
 				a.append(img);
-				div.append(a);
-				$('#image_preview').append(div);
+				li.append(a);
+				$('#image_preview').append(li);
 			};
 			fr.readAsDataURL(file);
 		}

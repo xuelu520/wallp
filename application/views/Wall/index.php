@@ -12,6 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="/public/js/offcanvas.js"></script>
 	<link href="/public/css/offcanvas.css" rel="stylesheet">
+	<link href="/public/css/public.css" rel="stylesheet">
 <body>
 <nav class="navbar navbar-fixed-top navbar-inverse">
 	<div class="container">
@@ -49,13 +50,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row bs-example">
 				<h1>壁纸列表</h1>
 			</div>
-			<div class="row">
+			<div class="row wpview">
+				<ul >
 				<?php foreach($walls as $wall):?>
-				<div class="col-xs-6 col-md-3 img_prev">
-					<a href="javascript:void(0);" class="thumbnail">
+				<li class="">
+					<a href="<?= UPYUN_URL.($wall->url);?>" target="_blank" class="">
 						<img alt="预览图" src="<?= UPYUN_URL.($wall->url).THUMB;?>">
 					</a>
-				</div>
+				</li>
 				<?php endforeach;?>
 			</div><!--/row-->
 		</div><!--/.col-xs-12.col-sm-9-->
