@@ -1,73 +1,29 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+include APPPATH."views/common/top.php";
 ?>
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-	<meta charset="utf-8">
-	<title>哇扑-后台管理</title>
-	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="/public/js/offcanvas.js"></script>
-	<link href="/public/css/offcanvas.css" rel="stylesheet">
-	<link href="/public/css/public.css" rel="stylesheet">
-<body>
-<nav class="navbar navbar-fixed-top navbar-inverse">
-	<div class="container">
-		<div class="navbar-header">
-			<a class="navbar-brand" href="/">哇扑-后台管理</a>
+
+<div class="col-xs-12 col-sm-9">
+	<div class="row">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><h3>上传图片</h3></div>
+			<div class="panel-body">
+				<a href="javascript:void(0);" class="file">选择文件
+					<input type="file" id="file" multiple="true">
+				</a>
+			</div>
 		</div>
-		<div id="navbar" class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="/">用户主页</a></li>
-				<li><a href="/login/logout">登出系统</a></li>
-			</ul>
-		</div><!-- /.nav-collapse -->
-	</div><!-- /.container -->
-</nav><!-- /.navbar -->
+	</div>
+	<div class="row wpview">
+		<ul id="image_preview">
 
-<div class="container">
-	<div class="row row-offcanvas row-offcanvas-right">
-		<div class="col-xs-6 col-sm-3 sidebar-offcanvas fixed" id="sidebar">
-			<div class="list-group">
-				<a href="/user/" class="list-group-item">用户列表</a>
-				<a href="/wall/index" class="list-group-item">壁纸干货</a>
-				<a href="/wall/add" class="list-group-item active">上传</a>
-				<a href="/wgroup/index" class="list-group-item">套图列表</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-				<a href="#" class="list-group-item">Link</a>
-			</div>
-		</div><!--/.sidebar-offcanvas-->
-		<div class="col-xs-12 col-sm-9">
-			<div class="row">
-				<div class="panel panel-primary">
-					<div class="panel-heading"><h3>上传图片</h3></div>
-					<div class="panel-body">
-						<a href="javascript:void(0);" class="file">选择文件
-							<input type="file" id="file" multiple="true">
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="row wpview">
-				<ul id="image_preview">
-
-				</ul>
-			</div>
-		</div><!--/.col-xs-12.col-sm-9-->
-	</div><!--/row-->
-	<hr>
-	<footer>
-		<p>&copy; makyu 2015 | 289415287@qq.com</p>
-	</footer>
-</div><!--/.container-->
+		</ul>
+	</div>
+</div><!--/.col-xs-12.col-sm-9-->
 <script>
 	$(function(){
+		nav('nav-wall-add');
+
 		$('#file').bind('change',function(){
 			var files = $(this)[0].files;
 			for(var i=0; i<files.length;++i) {
@@ -125,5 +81,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		return false;
 	}
 </script>
-</body>
-</html>
+<?php include APPPATH."views/common/footer.php";?>
