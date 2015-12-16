@@ -44,6 +44,5 @@
                 <a href="/wall/index" id="nav-wall-index" class="list-group-item">壁纸干货</a>
                 <a href="/wall/add" id="nav-wall-add" class="list-group-item">上传壁纸</a>
                 <a href="/wgroup/index" id="nav-wgroup-index" class="list-group-item">套图列表</a>
-                <a href="/wgroup/add" id="nav-wgroup-add" class="list-group-item">新增套图</a>
             </div>
         </div><!--/.sidebar-offcanvas-->
