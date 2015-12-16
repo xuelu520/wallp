@@ -115,6 +115,7 @@ include APPPATH."views/common/top.php";
 
 		//新增套图
 		$('#wgroup-add').bind('click',function() {
+			$('#wgroup-name').val("");//打开就清空套图名称
 			$('#AddModal').modal('show');
 		});
 	});
