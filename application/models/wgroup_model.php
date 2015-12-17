@@ -21,17 +21,16 @@ class Wgroup_Model extends CI_Model {
 
     /**
      * 添加套图数据
-     * @param $wgroup
+     * @param $name string 套图名称
      * @return mixed
      */
-    public function add($wgroup) {
-        //
-        $wg = $this->db->insert(self::TABLE_WGROUPS,$wgroup);
-        if($wg) {
-            //添加写缓存
-            $key = "wgroup:id:";
-            $this->cache->redis->set($key,$wg);
-        }
+    public function save($name) {
+        //构造数据
+        $wgroup = ['name'=>$name,
+            'create_time'=>time(),
+            'admin_uid'=>$_SESSION['admin:id'],
+            'admin_name'=>$_SESSION['admin:username']];
+        $wg = $this->db->insert(self::TABLE_WGROUP,$wgroup);
         return $wg;
     }
 

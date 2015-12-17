@@ -119,6 +119,7 @@ include APPPATH."views/common/top.php";
 			$('#AddModal').modal('show');
 		});
 
+		//保存套图
 		$('#wg-save').bind('click', function() {
 			var name = $('#wgroup-name').val();
 			if(!name) {
@@ -128,11 +129,12 @@ include APPPATH."views/common/top.php";
 				url:'/wgroup/save',
 				type:'POST',
 				dataType:'json',
-				data:{'wg_name'name},
+				data:{'wg_name':name},
 				success:function(res) {
 					alert(res.msg);
-					if(res.result == 'success') {
-						window.location.reload();
+					if(res.status == 'success') {
+						//添加成功，刷新页面
+						location.href = location.href;
 					}
 				}
 			});
