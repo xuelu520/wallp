@@ -8,7 +8,8 @@ include APPPATH."views/common/top.php";
 		<div class="panel panel-primary">
 			<div class="panel-heading"><h3>上传图片</h3></div>
 			<div class="panel-body">
-				<a href="javascript:void(0);" class="file">选择文件
+				<a href="javascript:void(0);" class="file">
+					<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>&nbsp;&nbsp;选择文件
 					<input type="file" id="file" multiple="true">
 				</a>
 			</div>

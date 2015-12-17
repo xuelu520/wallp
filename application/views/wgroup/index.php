@@ -34,12 +34,18 @@ include APPPATH."views/common/top.php";
 							</span>
 						</td>
 						<td>
-							<a class="wg-detail" href="javascript:;" data-wgid="<?=$wg->id?>">[详细]</a>
-							<a href="javascript:;">[编辑]</a>
+							<a class="wg-detail" href="javascript:;" data-wgid="<?=$wg->id?>" title="详细">
+								<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+							</a>
+							&nbsp;&nbsp;
 							<?php if($wg->status == 1):?>
-								<a href="javascript:;" data-key="DOWN" data-wgid="<?=$wg->id?>" class="wg-up-down">[下架]</a>
+								<a href="javascript:;" data-key="DOWN" data-wgid="<?=$wg->id?>" class="wg-up-down" title="下架">
+									<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+								</a>
 							<?php else: ?>
-								<a href="javascript:;" data-key="UP" data-wgid="<?=$wg->id?>" class="wg-up-down">[上架]</a>
+								<a href="javascript:;" data-key="UP" data-wgid="<?=$wg->id?>" class="wg-up-down" title="上架">
+									<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+								</a>
 							<?php endif; ?>
 						</td>
 					</tr>
