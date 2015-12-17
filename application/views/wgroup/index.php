@@ -31,7 +31,12 @@ include APPPATH."views/common/top.php";
 						</td>
 						<td>
 							<a class="wg-detail" href="javascript:;" data-wgid="<?=$wg->id?>">[详细]</a>
-							<a href="javascript:;">编辑</a>
+							<a href="javascript:;">[编辑]</a>
+							<?php if($wg->status == 1):?>
+								<a href="javascript:;" data-key="DOWN" data-wgid="<?=$wg->id?>" class="wg-up-down">[下架]</a>
+							<?php else: ?>
+								<a href="javascript:;" data-key="UP" data-wgid="<?=$wg->id?>" class="wg-up-down">[上架]</a>
+							<?php endif; ?>
 						</td>
 					</tr>
 				<?php endforeach;?>
@@ -134,6 +139,31 @@ include APPPATH."views/common/top.php";
 					alert(res.msg);
 					if(res.status == 'success') {
 						//添加成功，刷新页面
+						location.href = location.href;
+					}
+				}
+			});
+		});
+
+		//上架下架操作
+		$('.wg-up-down').bind('click',function() {
+
+			var key = $(this).attr('data-key');
+			var id = $(this).attr('data-wgid');
+			if(key == 'DOWN') {
+				if(!confirm("确认下架该套图么？？")){
+					return false;
+				}
+			}
+
+			$.ajax({
+				url:'/wgroup/up_or_down',
+				type:'POST',
+				dataType:'json',
+				data:{'key':key, 'wgid':id},
+				success: function(res) {
+					alert(res.msg);
+					if(res.status == 'success') {
 						location.href = location.href;
 					}
 				}
