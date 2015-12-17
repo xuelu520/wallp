@@ -13,7 +13,9 @@ class Wgroup extends MY_Controller{
         $this->load->view('/wgroup/index',['wgroups'=>$wgs]);
     }
 
-
+    /**
+     * 查询套图数据
+     */
     public function ajax_get_one() {
         $wg_id = $this->input->get('wgid',TRUE);
         if(!$wg_id){
@@ -32,5 +34,21 @@ class Wgroup extends MY_Controller{
             }
             out(SUCCESS_STATUS,GET_SUCCESS_MSG,$wg);exit;
         }
+    }
+
+    /**
+     * 添加套图
+     */
+    public function save() {
+        $name = $this->input->post('wg_name');
+        if(!$name) {
+            out('fail','参数错误喔！');exit;
+        }
+        $this->load->model('wgroup_model','wg_model');
+        $res = $this->wg_model->save($name);
+        if(!$res) {
+            out('fail','添加失败咯！');exit;
+        }
+        out('success','添加好了，正在刷新...');exit;
     }
 }

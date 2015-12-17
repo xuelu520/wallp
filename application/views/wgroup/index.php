@@ -70,7 +70,7 @@ include APPPATH."views/common/top.php";
 					<div class="form-group ml140">
 						<input type="email" class="form-control" id="wgroup-name" placeholder="套图名称" width="100">
 					</div>
-					<button type="submit" class="btn btn-default">确认新增</button>
+					<button type="submit" class="btn btn-default" id="wg-save"> 确认新增</button>
 				</div>
 			</div>
 		</div><!-- /.modal-content -->
@@ -113,10 +113,29 @@ include APPPATH."views/common/top.php";
 			});
 		});
 
-		//新增套图
+		//新增套图-modal
 		$('#wgroup-add').bind('click',function() {
 			$('#wgroup-name').val("");//打开就清空套图名称
 			$('#AddModal').modal('show');
+		});
+
+		$('#wg-save').bind('click', function() {
+			var name = $('#wgroup-name').val();
+			if(!name) {
+				alert('套图名称不能不写喔！');
+			}
+			$.ajax({
+				url:'/wgroup/save',
+				type:'POST',
+				dataType:'json',
+				data:{'wg_name'name},
+				success:function(res) {
+					alert(res.msg);
+					if(res.result == 'success') {
+						window.location.reload();
+					}
+				}
+			});
 		});
 	});
 </script>
