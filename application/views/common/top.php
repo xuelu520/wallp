@@ -29,8 +29,16 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">用户主页</a></li>
-                <li><a href="/login/logout">登出系统</a></li>
+                <li class="active">
+                    <a href="/" title="后台管理主页">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/login/logout" title="登出系统">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                    </a>
+                </li>
             </ul>
         </div><!-- /.nav-collapse -->
     </div><!-- /.container -->

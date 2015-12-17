@@ -9,7 +9,7 @@ include APPPATH."views/common/top.php";
 	<div class="row bs-example">
 		<h1>套图列表
 			<button class="btn btn-default" id="wgroup-add">
-				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增套图
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 			</button>
 		</h1>
 	</div>
