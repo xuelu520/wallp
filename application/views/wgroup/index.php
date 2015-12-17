@@ -7,7 +7,11 @@ include APPPATH."views/common/top.php";
 		<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 	</p>
 	<div class="row bs-example">
-		<h1>套图列表<button class="btn btn-default" id="wgroup-add">新增套图</button></h1>
+		<h1>套图列表
+			<button class="btn btn-default" id="wgroup-add">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增套图
+			</button>
+		</h1>
 	</div>
 	<div class="row">
 		<table class="table table-hover">
