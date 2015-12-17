@@ -39,7 +39,7 @@ class Wgroup_Model extends CI_Model {
      * @return mixed  array object壁纸列表
      */
     function getList() {
-        $sql = "SELECT * FROM wgroup WHERE status = 1 ORDER BY create_time DESC";
+        $sql = "SELECT * FROM wgroup ORDER BY create_time DESC";
         return $this->db->query($sql)->result();
     }
 
@@ -95,5 +95,26 @@ class Wgroup_Model extends CI_Model {
             $wg_items = json_decode($wg_items,TRUE);
         }
         return $wg_items;
+    }
+
+    /**
+     * 上架或下架
+     * @param $key string 大写 UP   DOWN
+     * @param $wgid int 套图ID
+     * @return mixed
+     */
+    function up_or_down($key,$wgid) {
+        $status = 1;
+        if($key == 'UP') {
+            $status = 1;
+        }else{
+            $status = 0;
+        }
+        $data = array(
+            'status' => $status
+        );
+
+        $this->db->where('id', $wgid);
+        return $this->db->update(self::TABLE_WGROUP, $data);
     }
 }
