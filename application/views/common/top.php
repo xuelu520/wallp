@@ -40,9 +40,17 @@
     <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas fixed" id="sidebar">
             <div class="list-group">
-                <a href="/wall/index" id="nav-wall-index" class="list-group-item">壁纸干货</a>
-                <a href="/wall/add" id="nav-wall-add" class="list-group-item">上传壁纸</a>
-                <a href="/wgroup/index" id="nav-wgroup-index" class="list-group-item">套图列表</a>
-                <a href="#" id="nav-user-list" class="list-group-item">用户列表</a>
+                <a href="/wall/index" id="nav-wall-index" class="list-group-item">
+                    <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>&nbsp;&nbsp;壁纸干货
+                </a>
+                <a href="/wall/add" id="nav-wall-add" class="list-group-item">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;&nbsp;上传壁纸
+                </a>
+                <a href="/wgroup/index" id="nav-wgroup-index" class="list-group-item">
+                    <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;&nbsp;套图列表
+                </a>
+                <a href="#" id="nav-user-list" class="list-group-item">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;用户列表
+                </a>
             </div>
         </div><!--/.sidebar-offcanvas-->
