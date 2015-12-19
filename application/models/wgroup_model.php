@@ -48,7 +48,7 @@ class Wgroup_Model extends CI_Model {
      * @param $wg_id int 套图ID
      * @return mixed|string
      */
-    function one($wg_id) {
+    function one($wg_id,$limit=0) {
         //查询缓存
         $redis_key = 'wgroup:id:'.$wg_id;
         $redis = new WRedis();
@@ -59,7 +59,7 @@ class Wgroup_Model extends CI_Model {
             $wgroup = $this->db->query($sql)->row_array();
             if($wgroup) {
                 //查询items数据
-                $items = $this->items($wg_id);
+                $items = $this->items($wg_id,$limit);
                 $wgroup['items'] = $items;
                 $redis = new WRedis();
                 $redis->set($redis_key, json_encode($wgroup,TRUE),60*10);
@@ -74,9 +74,14 @@ class Wgroup_Model extends CI_Model {
     /**
      * 查询套图壁纸数据
      * @param $wg_id
+     * @param $limit
      * @return mixed
      */
-    function items($wg_id) {
+    function items($wg_id,$limit = 0) {
+        $limit_str = "";
+        if($limit > 0) {
+            $limit_str = "limit ".$limit;
+        }
         //查询缓存
         $redis_key = 'wgroup:items:id:'.$wg_id;
         $redis = new WRedis();
@@ -87,7 +92,7 @@ class Wgroup_Model extends CI_Model {
             $sql = "SELECT url
                     FROM ".self::TABLE_WGROUP_ITEM." AS i
                     RIGHT JOIN walls as w ON w.id = i.wall_id
-                    WHERE i.wg_id = $wg_id AND i.status = 1 AND w.status = 1";
+                    WHERE i.wg_id = $wg_id AND i.status = 1 AND w.status = 1 order by w.create_time DESC $limit_str";
             $wg_items = $this->db->query($sql)->result_array();
             //设置缓存
             $redis->set($redis_key,json_encode($wg_items));
