@@ -26,8 +26,8 @@ class WRedis {
         return self::$redis->get($key);
     }
 
-    public function del($keys) {
-        self::$redis->del($keys);
+    public function del($key) {
+        self::$redis->expire($key, 0);
     }
 
 }
