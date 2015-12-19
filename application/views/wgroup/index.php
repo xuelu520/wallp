@@ -11,6 +11,9 @@ include APPPATH."views/common/top.php";
 			<button class="btn btn-default" id="wgroup-add">
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 			</button>
+			<button class="btn btn-default" id="wgroup-reset-cache">
+				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;&nbsp;清空套图缓存
+			</button>
 		</h1>
 	</div>
 	<div class="row">
@@ -176,6 +179,20 @@ include APPPATH."views/common/top.php";
 					if(res.status == 'success') {
 						location.href = location.href;
 					}
+				}
+			});
+		});
+
+		/**
+		 * 重置缓存
+		 */
+		$('#wgroup-reset-cache').bind('click',function() {
+			$.ajax({
+				url:'/wgroup/reset_cache',
+				type:'GET',
+				dataType:'json',
+				success: function (res) {
+					alert(res.msg);
 				}
 			});
 		});

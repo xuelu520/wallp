@@ -62,7 +62,7 @@ class Wgroup_Model extends CI_Model {
                 $items = $this->items($wg_id);
                 $wgroup['items'] = $items;
                 $redis = new WRedis();
-                $redis->set($redis_key, json_encode($wgroup,TRUE));
+                $redis->set($redis_key, json_encode($wgroup,TRUE),60*10);
             }
         }else{
             $wgroup = json_decode($wgroup,TRUE);
@@ -116,5 +116,17 @@ class Wgroup_Model extends CI_Model {
 
         $this->db->where('id', $wgid);
         return $this->db->update(self::TABLE_WGROUP, $data);
+    }
+
+    /**
+     * 重置套图缓存
+     */
+    function reset_cache() {
+        $wg_key = 'wgroup:id:*';
+        $wg_items_key = 'wgroup:items:id:*';
+
+        $redis = new WRedis();
+        $redis->del($wg_key);
+        $redis->del($wg_items_key);
     }
 }

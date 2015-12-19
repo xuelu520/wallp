@@ -52,6 +52,9 @@ class Wgroup extends MY_Controller{
         out('success','添加好了，正在刷新...');exit;
     }
 
+    /**
+     * 上架或下架操作
+     */
     public function up_or_down() {
         $key = $this->input->post('key'); //操作
         $wgid = $this->input->post('wgid'); //操作
@@ -64,5 +67,14 @@ class Wgroup extends MY_Controller{
             out('fail','操作失败咯！');exit;
         }
         out('success','操作成功了，正在刷新...');exit;
+    }
+
+    /**
+     * 重置缓存
+     */
+    public function reset_cache() {
+        $this->load->model('wgroup_model','wg_model');
+        $this->wg_model->reset_cache();
+        out('success','重置缓存成功了喔！');exit;
     }
 }
