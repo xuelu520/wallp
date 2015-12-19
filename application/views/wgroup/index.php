@@ -11,9 +11,6 @@ include APPPATH."views/common/top.php";
 			<button class="btn btn-default" id="wgroup-add">
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 			</button>
-			<button class="btn btn-default" id="wgroup-reset-cache">
-				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>&nbsp;&nbsp;清空套图缓存
-			</button>
 		</h1>
 	</div>
 	<div class="row">
@@ -50,6 +47,10 @@ include APPPATH."views/common/top.php";
 									<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
 								</a>
 							<?php endif; ?>
+							&nbsp;&nbsp;
+							<a href="javascript:;" data-wgid="<?=$wg->id?>" class="wg-refresh" title="更新缓存">
+								<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+							</a>
 						</td>
 					</tr>
 				<?php endforeach;?>
@@ -186,11 +187,13 @@ include APPPATH."views/common/top.php";
 		/**
 		 * 重置缓存
 		 */
-		$('#wgroup-reset-cache').bind('click',function() {
+		$('.wg-refresh').bind('click',function() {
+			var wg_id = $(this).attr('data-wgid');
 			$.ajax({
 				url:'/wgroup/reset_cache',
-				type:'GET',
+				type:'POST',
 				dataType:'json',
+				data:{'wgid':wg_id},
 				success: function (res) {
 					alert(res.msg);
 				}

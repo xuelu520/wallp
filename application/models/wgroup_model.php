@@ -55,7 +55,7 @@ class Wgroup_Model extends CI_Model {
         $wgroup = [];
         $wgroup = $redis->get($redis_key);
         if(!$wgroup) {
-            $sql = "SELECT * FROM ".(self::TABLE_WGROUP)." WHERE id = ".$wg_id." AND status = 1";
+            $sql = "SELECT name FROM ".(self::TABLE_WGROUP)." WHERE id = ".$wg_id." AND status = 1";
             $wgroup = $this->db->query($sql)->row_array();
             if($wgroup) {
                 //查询items数据
@@ -84,7 +84,7 @@ class Wgroup_Model extends CI_Model {
         $wg_items = $redis->get($redis_key);
         if(!$wg_items) {
             //数据库查询
-            $sql = "SELECT *
+            $sql = "SELECT url
                     FROM ".self::TABLE_WGROUP_ITEM." AS i
                     RIGHT JOIN walls as w ON w.id = i.wall_id
                     WHERE i.wg_id = $wg_id AND i.status = 1 AND w.status = 1";
@@ -121,9 +121,9 @@ class Wgroup_Model extends CI_Model {
     /**
      * 重置套图缓存
      */
-    function reset_cache() {
-        $wg_key = 'wgroup:id:*';
-        $wg_items_key = 'wgroup:items:id:*';
+    function reset_cache($wg_id) {
+        $wg_key = 'wgroup:id:'.$wg_id;
+        $wg_items_key = 'wgroup:items:id:'.$wg_id;
 
         $redis = new WRedis();
         $redis->del($wg_key);
