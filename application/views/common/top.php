@@ -57,7 +57,7 @@
                 <a href="/wgroup/index" id="nav-wgroup-index" class="list-group-item">
                     <span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;&nbsp;套图列表
                 </a>
-                <a href="/user/index" id="nav-user-list" class="list-group-item">
+                <a href="/user/index" id="nav-user-index" class="list-group-item">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;用户列表
                 </a>
             </div>

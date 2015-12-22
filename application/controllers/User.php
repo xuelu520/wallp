@@ -21,7 +21,7 @@ class User extends MY_Controller{
     public function index() {
         $this->load->model('user_model','user');
         $users = $this->user->user_list();
-        $this->load->view('/wall/index',['walls'=>$users]);
+        $this->load->view('/user/index',['users'=>$users]);
     }
 
     public function add() {

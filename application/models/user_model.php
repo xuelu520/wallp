@@ -20,10 +20,10 @@ class User_Model extends CI_Model {
      * @return mixed
      */
     public function user_list() {
-        $sql = "SELECT u.username username,u.create_time create_time,u.status status,o.type type
+        $sql = "SELECT u.id id,u.username username,u.create_time create_time,u.status status,o.type type
                 FROM users AS u
                 LEFT JOIN open_login AS o on u.id = o.user_id
-                WHERE uid = ? and status = 1 ORDER BY create_time DESC";
+                WHERE u.status = 1 ORDER BY u.create_time DESC";
         return $this->db->query($sql)->result();
     }
 }
