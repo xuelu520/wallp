@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-22 16:04:53
+-- Generation Time: 2015-12-22 16:40:15
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
@@ -72,7 +72,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1-有效，2-无效，',
   PRIMARY KEY (`id`),
   KEY `username` (`username`,`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='用户表' AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `passwd`, `create_time`, `status`) VALUES
+(1, 'test001', 'e10adc3949ba59abbe56e057f20f883e', 1450797529, 1),
+(2, 'test002', 'e10adc3949ba59abbe56e057f20f883e', 1450797529, 1),
+(3, 'test003', 'e10adc3949ba59abbe56e057f20f883e', 1450797529, 1);
 
 -- --------------------------------------------------------
 
