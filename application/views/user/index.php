@@ -41,12 +41,12 @@ include APPPATH."views/common/top.php";
 							</a>
 							&nbsp;&nbsp;
 							<?php if($user->status == 1):?>
-								<a href="javascript:;" data-key="DOWN" data-wgid="<?=$user->id?>" class="wg-up-down" title="下架">
-									<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+								<a href="javascript:;" data-key="DOWN" data-uid="<?=$user->id?>" class="user-up-down" title="禁用用户">
+									<span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
 								</a>
 							<?php else: ?>
-								<a href="javascript:;" data-key="UP" data-wgid="<?=$user->id?>" class="wg-up-down" title="上架">
-									<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+								<a href="javascript:;" data-key="UP" data-uid="<?=$user->id?>" class="user-up-down" title="激活用户">
+									<span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
 								</a>
 							<?php endif; ?>
 						</td>
