@@ -6,7 +6,7 @@
  * Time: 23:10
  */
 class User_Model extends CI_Model {
-    const TABLE_ADMINS = "admins";
+    const TABLE_USERS = "users";
     public function __construct()
     {
         // Call the CI_Model constructor
@@ -23,7 +23,28 @@ class User_Model extends CI_Model {
         $sql = "SELECT u.id id,u.username username,u.create_time create_time,u.status status,o.type type
                 FROM users AS u
                 LEFT JOIN open_login AS o on u.id = o.user_id
-                WHERE u.status = 1 ORDER BY u.create_time DESC";
+                ORDER BY u.create_time DESC";
         return $this->db->query($sql)->result();
+    }
+
+    /**
+     * 上架或下架
+     * @param $key string 大写 UP-激活  DOWN-禁用
+     * @param $uid int 用户ID
+     * @return mixed
+     */
+    function up_or_down($key,$uid) {
+        $status = 1;
+        if($key == 'UP') {
+            $status = 1;
+        }else{
+            $status = 2;
+        }
+        $data = array(
+            'status' => $status
+        );
+
+        $this->db->where('id', $uid);
+        return $this->db->update(self::TABLE_USERS, $data);
     }
 }

@@ -24,7 +24,20 @@ class User extends MY_Controller{
         $this->load->view('/user/index',['users'=>$users]);
     }
 
-    public function add() {
-        $this->load->view('/wall/add');
+    /**
+     * 禁用或激活用户
+     */
+    public function up_or_down() {
+        $key = $this->input->post('key',TRUE); //操作
+        $uid = $this->input->post('uid',TRUE); //ID
+        if(!$key || !$key) {
+            out('fail','参数错误喔！');exit;
+        }
+        $this->load->model('user_model','user');
+        $res = $this->user->up_or_down(strtoupper($key),$uid);
+        if(!$res) {
+            out('fail','操作失败咯！');exit;
+        }
+        out('success','操作成功了，正在刷新...');exit;
     }
 }

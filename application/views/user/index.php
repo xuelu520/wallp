@@ -158,10 +158,10 @@ include APPPATH."views/common/top.php";
 		});
 
 		//上架下架操作
-		$('.wg-up-down').bind('click',function() {
+		$('.user-up-down').bind('click',function() {
 
 			var key = $(this).attr('data-key');
-			var id = $(this).attr('data-wgid');
+			var id = $(this).attr('data-uid');
 			if(key == 'DOWN') {
 				if(!confirm("确认下架该套图么？？")){
 					return false;
@@ -169,31 +169,15 @@ include APPPATH."views/common/top.php";
 			}
 
 			$.ajax({
-				url:'/wgroup/up_or_down',
+				url:'/user/up_or_down',
 				type:'POST',
 				dataType:'json',
-				data:{'key':key, 'wgid':id},
+				data:{'key':key, 'uid':id},
 				success: function(res) {
 					alert(res.msg);
 					if(res.status == 'success') {
 						location.href = location.href;
 					}
-				}
-			});
-		});
-
-		/**
-		 * 重置缓存
-		 */
-		$('.wg-refresh').bind('click',function() {
-			var wg_id = $(this).attr('data-wgid');
-			$.ajax({
-				url:'/wgroup/reset_cache',
-				type:'POST',
-				dataType:'json',
-				data:{'wgid':wg_id},
-				success: function (res) {
-					alert(res.msg);
 				}
 			});
 		});
