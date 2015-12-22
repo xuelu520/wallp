@@ -40,4 +40,38 @@ class User extends MY_Controller{
         }
         out('success','操作成功了，正在刷新...');exit;
     }
+
+    /**
+     * 添加用户
+     */
+    public function save() {
+        $username = $this->input->post('username',TRUE);
+        $passwd = &$username;
+
+        if(!$username) {
+            out('fail','参数错误喔！');exit;
+        }
+        $this->load->model('user_model','user');
+        $res = $this->user->save($username,$passwd);
+        if(!$res) {
+            out('fail','操作失败咯！');exit;
+        }
+        out('success','操作成功了，正在刷新...');exit;
+    }
+
+    /**
+     * 检查用户名是否存在
+     */
+    public function chech_username() {
+        $username = $this->input->post('username',TRUE);
+        if(!$username) {
+            out('fail','参数错误喔！');exit;
+        }
+        $this->load->model('user_model','user');
+        $res = $this->user->check_username($username);
+        if(!$res) {
+            out('fail','用户名已经存在！请更换');exit;
+        }
+        out('success','用户名没人使用喔！');exit;
+    }
 }

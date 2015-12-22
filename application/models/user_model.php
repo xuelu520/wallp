@@ -28,7 +28,7 @@ class User_Model extends CI_Model {
     }
 
     /**
-     * 上架或下架
+     * 激活或禁用用户
      * @param $key string 大写 UP-激活  DOWN-禁用
      * @param $uid int 用户ID
      * @return mixed
@@ -46,5 +46,30 @@ class User_Model extends CI_Model {
 
         $this->db->where('id', $uid);
         return $this->db->update(self::TABLE_USERS, $data);
+    }
+
+    /**
+     * 添加用户数据
+     * @param $username string 用户名
+     * @param $passwd string 密码
+     * @return mixed
+     */
+    public function save($username,$passwd) {
+        //构造数据
+        $user = ['username'=>$username,
+            'passwd'=>md5($passwd.PASSWD_SALT),
+            'create_time'=>time()];
+        $res = $this->db->insert(self::TABLE_USERS,$user);
+        return $res;
+    }
+
+    /**
+     * 查询 用户名是否存在
+     * @param $username string 用户名
+     * @return mixed
+     */
+    public function chech_username($username) {
+        $sql = "SELECT id FROM ".(self::TABLE_USERS)." WHERE username = '".$username."'";
+        return $this->db->query($sql)->row_array();
     }
 }
