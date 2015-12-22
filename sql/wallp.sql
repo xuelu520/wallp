@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-19 20:07:42
+-- Generation Time: 2015-12-22 16:04:53
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
@@ -42,6 +42,37 @@ CREATE TABLE IF NOT EXISTS `admins` (
 
 INSERT INTO `admins` (`id`, `username`, `pwd`, `create_time`, `status`) VALUES
 (1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 1447487000, 1);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `open_login`
+--
+
+CREATE TABLE IF NOT EXISTS `open_login` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `user_id` int(11) NOT NULL COMMENT '用户ID',
+  `appid` varchar(255) NOT NULL COMMENT '三方登录APPID',
+  `type` int(2) NOT NULL COMMENT '登录类型，1-QQ登录，2-微信登录，3-微博登录',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`,`appid`,`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='三方登录关联表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键-用户ID',
+  `username` varchar(255) NOT NULL COMMENT '用户名，手机或邮箱',
+  `passwd` varchar(255) NOT NULL COMMENT '密码',
+  `create_time` int(11) NOT NULL COMMENT '创建时间',
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1-有效，2-无效，',
+  PRIMARY KEY (`id`),
+  KEY `username` (`username`,`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -119,33 +150,6 @@ INSERT INTO `walls` (`id`, `uid`, `url`, `create_time`, `status`, `category`) VA
 -- --------------------------------------------------------
 
 --
--- 表的结构 `wg_items`
---
-
-CREATE TABLE IF NOT EXISTS `wg_items` (
-  `wg_id` int(11) NOT NULL COMMENT '套图ID',
-  `wall_id` int(11) NOT NULL COMMENT '壁纸ID',
-  `status` int(2) NOT NULL DEFAULT '1' COMMENT '有效状态：1-有效，0-无效',
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`),
-  KEY `wg_id` (`wg_id`,`wall_id`,`status`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='套图对应壁纸' AUTO_INCREMENT=7 ;
-
---
--- 转存表中的数据 `wg_items`
---
-
-INSERT INTO `wg_items` (`wg_id`, `wall_id`, `status`, `id`) VALUES
-(1, 46, 1, 1),
-(1, 48, 1, 2),
-(1, 49, 1, 3),
-(1, 50, 1, 4),
-(1, 51, 1, 5),
-(1, 52, 1, 6);
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `wgroup`
 --
 
@@ -171,6 +175,33 @@ INSERT INTO `wgroup` (`id`, `name`, `create_time`, `status`, `admin_uid`, `admin
 (4, '首页主栏目3', 1450360292, 1, 1, 'admin'),
 (5, '首页主栏目4', 1450360341, 0, 1, 'admin'),
 (6, '首页主栏目5', 1450360388, 1, 1, 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `wg_items`
+--
+
+CREATE TABLE IF NOT EXISTS `wg_items` (
+  `wg_id` int(11) NOT NULL COMMENT '套图ID',
+  `wall_id` int(11) NOT NULL COMMENT '壁纸ID',
+  `status` int(2) NOT NULL DEFAULT '1' COMMENT '有效状态：1-有效，0-无效',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `wg_id` (`wg_id`,`wall_id`,`status`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='套图对应壁纸' AUTO_INCREMENT=7 ;
+
+--
+-- 转存表中的数据 `wg_items`
+--
+
+INSERT INTO `wg_items` (`wg_id`, `wall_id`, `status`, `id`) VALUES
+(1, 46, 1, 1),
+(1, 48, 1, 2),
+(1, 49, 1, 3),
+(1, 50, 1, 4),
+(1, 51, 1, 5),
+(1, 52, 1, 6);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
