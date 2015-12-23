@@ -80,12 +80,12 @@ include APPPATH."views/common/top.php";
 		<div class="modal-content mt200" >
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h3 class="modal-title">新增套图</h3>
+				<h3 class="modal-title">新增用户</h3>
 			</div>
 			<div class="modal-body">
 				<div class="form-inline" style="">
 					<div class="form-group ml140">
-						<input type="email" class="form-control" id="wgroup-name" placeholder="套图名称" width="100">
+						<input type="email" class="form-control" id="username" placeholder="用户名称" width="100">
 					</div>
 					<button type="submit" class="btn btn-default" id="wg-save"> 确认新增</button>
 				</div>
@@ -130,9 +130,9 @@ include APPPATH."views/common/top.php";
 			});
 		});
 
-		//新增套图-modal
-		$('#wgroup-add').bind('click',function() {
-			$('#wgroup-name').val("");//打开就清空套图名称
+		//新增用户-modal
+		$('#user-add').bind('click',function() {
+			$('#username').val("");//打开就清空套图名称
 			$('#AddModal').modal('show');
 		});
 
