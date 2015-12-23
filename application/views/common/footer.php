@@ -9,7 +9,7 @@
 </div><!--/row-->
 <hr>
 <footer>
-    <p>&copy; makyu 2015 | 289415287@qq.com</p>
+    <p>&copy; makyu 2015-2016 |Misaka Mikito 炮姐赛高</p>
 </footer>
 </div><!--/.container-->
 </body>
