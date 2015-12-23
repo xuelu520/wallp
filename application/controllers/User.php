@@ -69,8 +69,8 @@ class User extends MY_Controller{
         }
         $this->load->model('user_model','user');
         $res = $this->user->check_username($username);
-        if(!$res) {
-            out('fail','用户名已经存在！请更换');exit;
+        if($res) {
+            out('fail','用户名已经存在！请更换喔！');exit;
         }
         out('success','用户名没人使用喔！');exit;
     }

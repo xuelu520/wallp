@@ -68,7 +68,7 @@ class User_Model extends CI_Model {
      * @param $username string 用户名
      * @return mixed
      */
-    public function chech_username($username) {
+    public function check_username($username) {
         $sql = "SELECT id FROM ".(self::TABLE_USERS)." WHERE username = '".$username."'";
         return $this->db->query($sql)->row_array();
     }

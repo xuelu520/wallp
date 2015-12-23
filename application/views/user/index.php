@@ -84,10 +84,14 @@ include APPPATH."views/common/top.php";
 			</div>
 			<div class="modal-body">
 				<div class="form-inline" style="">
-					<div class="form-group ml140">
+					<div class="form-group ml140" id="username_input">
 						<input type="email" class="form-control" id="username" placeholder="用户名称" width="100">
+						<button type="submit" class="btn btn-default" id="user-save"> 确认新增</button>
 					</div>
-					<button type="submit" class="btn btn-default" id="wg-save"> 确认新增</button>
+					<div class="form-group ml140" style="height: 30px;">
+						<span class="error—info"></span>
+					</div>
+
 				</div>
 			</div>
 		</div><!-- /.modal-content -->
@@ -137,24 +141,37 @@ include APPPATH."views/common/top.php";
 		});
 
 		//保存套图
-		$('#wg-save').bind('click', function() {
-			var name = $('#wgroup-name').val();
+		$('#user-save').bind('click', function() {
+			var name = $('#username').val();
 			if(!name) {
-				alert('套图名称不能不写喔！');
+				alert('用户名称不能不写喔！');
 			}
 			$.ajax({
-				url:'/wgroup/save',
+				url:'/user/chech_username',
 				type:'POST',
 				dataType:'json',
-				data:{'wg_name':name},
-				success:function(res) {
-					alert(res.msg);
-					if(res.status == 'success') {
-						//添加成功，刷新页面
-						location.href = location.href;
-					}
+				data:{'username':name}
+			}).success(function(res){
+				if(res.status == 'fail'){
+					$('#username_input').addClass('has-error');
+					$('.error—info').html(res.msg);
+					return;
 				}
+				$.ajax({
+					url:'/user/save',
+					type:'POST',
+					dataType:'json',
+					data:{'username':name},
+					success:function(res) {
+						alert(res.msg);
+						if(res.status == 'success') {
+							//添加成功，刷新页面
+							location.href = location.href;
+						}
+					}
+				});
 			});
+
 		});
 
 		//上架下架操作
