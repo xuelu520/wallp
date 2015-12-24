@@ -18,6 +18,9 @@ class Wall extends MY_Controller{
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
+    /**
+     * 后台登陆后首页-壁纸列表
+     */
     public function index() {
         $this->load->model('wall_model','wall');
         $admin_id = $_SESSION['admin:id'];
