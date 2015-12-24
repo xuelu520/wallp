@@ -28,10 +28,6 @@ class Wall extends MY_Controller{
         $this->load->view('/wall/index',['walls'=>$walls]);
     }
 
-    public function add() {
-        $this->load->view('/wall/add');
-    }
-
     /**
      * 上传接口
      */
