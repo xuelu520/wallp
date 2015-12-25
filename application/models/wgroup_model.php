@@ -89,7 +89,7 @@ class Wgroup_Model extends CI_Model {
         $wg_items = $redis->get($redis_key);
         if(!$wg_items) {
             //数据库查询
-            $sql = "SELECT url, concat(url,'!pp') thumb 
+            $sql = "SELECT url, concat(url,'!pp') thumb
                     FROM ".self::TABLE_WGROUP_ITEM." AS i
                     RIGHT JOIN walls as w ON w.id = i.wall_id
                     WHERE i.wg_id = $wg_id AND i.status = 1 AND w.status = 1 order by w.create_time DESC $limit_str";
