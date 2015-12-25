@@ -29,6 +29,13 @@ class Wall extends MY_Controller{
     }
 
     /**
+     * 上传壁纸
+     */
+    public function add() {
+        $this->load->view('/wall/add');
+    }
+
+    /**
      * 上传接口
      */
     public function upload() {
