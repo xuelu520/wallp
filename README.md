@@ -13,6 +13,10 @@
 配置文件
 >/application/config/config-sample.php copy一份改名为config.php，同时修改内部配置
 
+
+依赖PHP拓展
+* php5-mysql
+* php5-curl
 [composer安装](http://www.phpcomposer.com/)以及更新项目依赖类库  
 ```shell
 composer install  
