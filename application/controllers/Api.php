@@ -5,7 +5,7 @@ class Api extends CI_Controller {
         parent::__construct();
     }
     public function wg_one() {
-        $wg_id = $this->input->get('wgid',TRUE);
+        $wg_id = $this->input->get('wg_id',TRUE);
         if(!$wg_id){
             out(FAIL_STATUS,GET_FAIL_MSG);exit;
         }
