@@ -11,12 +11,13 @@
 
 ##初始化设置
 配置文件
->/application/config/config-sample.php copy一份改名为config.php，同时修改内部配置
+>/application/config/config-sample.php copy一份改名为config.php，同时修改内部配置  
+>/application/config/redis.php 更改redis服务器IP地址  
+>/application/config/database.php 更改mysql 账号密码  
 
-
-依赖PHP拓展
-* php5-mysql
-* php5-curl
+依赖PHP拓展  
+* php5-mysql  
+* php5-curl  
 [composer安装](http://www.phpcomposer.com/)以及更新项目依赖类库  
 ```shell
 composer install  
