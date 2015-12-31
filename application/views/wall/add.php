@@ -6,7 +6,7 @@ include APPPATH."views/common/top.php";
 <div class="col-xs-12 col-sm-9">
 	<div class="row">
 		<div class="panel panel-primary">
-			<div class="panel-heading"><h3>上传图片</h3></div>
+			<div class="panel-heading"><h3>上传壁纸</h3></div>
 			<div class="panel-body">
 				<a href="javascript:void(0);" class="file">
 					<span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>&nbsp;&nbsp;选择文件
@@ -29,7 +29,6 @@ include APPPATH."views/common/top.php";
 			var files = $(this)[0].files;
 			for(var i=0; i<files.length;++i) {
 				var ifile = files[i];
-				console.log(ifile);
 				preview(ifile);
 				upload(ifile);
 			}
@@ -44,7 +43,6 @@ include APPPATH."views/common/top.php";
 		if(window.FileReader) {
 			var fr = new FileReader();
 			fr.onload = function(e) {
-				console.log(e.target.result);
 				var li = $('<li></li>');
 				var a = $('<a href="javascript:void(0);" ></a>');
 				var img = $('<img alt="预览图">');
