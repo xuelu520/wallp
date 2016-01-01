@@ -11,12 +11,23 @@
 
 ##部署流程
 * 安装核心库：php5-mysql，php5-curl  
+* 开启rewrite_mode,添加.htaccess 文件内容
+
 * [composer安装](http://www.phpcomposer.com/)以及更新项目依赖类库,**composer install**
 * /application/config/config-sample.php copy一份改名为config.php，同时修改内部UPYUN配置  
 * /application/config/redis.php 更改redis服务器IP地址  
 * /application/config/database.php 更改mysql 账号密码  
 * 数据库建库 wallp,导入 /sql/wallp.sql文件  
-
+  
+.htaccess 文件，清除URL中index.php
+``shell
+<IfModule mod_rewrite.c>
+     RewriteEngine on
+     RewriteCond %{REQUEST_FILENAME} !-d
+     RewriteCond %{REQUEST_FILENAME} !-f
+     RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+ </IfModule>
+```
 
 后台ADMIN 账号：admin,密码：123456
 
