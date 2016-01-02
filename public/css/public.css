@@ -49,5 +49,11 @@
     color: RED;
 }
 
+/* gotop */
+.goToTop{width:60px;text-indent:-999em;cursor:pointer;position:fixed;_position:absolute;right:50%;bottom:60px;margin:0 -560px 0 0;display:none;}
+.goToTop a{display:block;width:60px;height:60px;background:url("/public/image/head.png") no-repeat;}
+.goToTop a.toTop:link,.goToTop a.toTop:visited{background-position:-47px -75px;}
+.goToTop a.toTop:hover,.goToTop a.toTop:active{background-position:-117px -75px;}
+
 
 
