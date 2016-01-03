@@ -13,11 +13,13 @@ $(function() {
 
 
     //当点击跳转链接后，回到页面顶部位置
-    $("#backToTop").click(function(){
-        $('body,html').animate({scrollTop:0},200);
+    $("#backToTop").bind('click',function(){
+        $('body,html').animate({scrollTop:0},250);
         return false;
     });
 });
+
+// 左侧菜单高亮方法
 function nav(id) {
     $('.list-group').find('a').removeClass('active');
     $('#'+id).addClass('active');
