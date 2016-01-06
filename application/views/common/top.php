@@ -13,12 +13,13 @@
     <title>哇扑-管理后台</title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link href="/public/css/offcanvas.css" rel="stylesheet">
+    <link href="/public/css/public.css" rel="stylesheet">
+
     <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/public/js/offcanvas.js"></script>
     <script src="/public/js/public.js"></script>
-    <link href="/public/css/offcanvas.css" rel="stylesheet">
-    <link href="/public/css/public.css" rel="stylesheet">
 <body>
 <nav class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">

@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-require_once (APPPATH.'libraries/upyun.class.php');//引入upyun SDK
 class User extends MY_Controller{
 
     /**
