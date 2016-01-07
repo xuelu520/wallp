@@ -25,6 +25,9 @@ include APPPATH."views/common/top.php";
 	$(function(){
 		nav('nav-wall-add');
 
+		/**
+		 * 上传按钮事件
+		 */
 		$('#file').bind('change',function(){
 			var files = $(this)[0].files;
 			for(var i=0; i<files.length;++i) {
