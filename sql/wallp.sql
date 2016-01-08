@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2015-12-22 16:40:15
+-- Generation Time: 2016-01-08 18:07:15
 -- 服务器版本： 5.6.17
 -- PHP Version: 5.5.12
 
@@ -52,10 +52,10 @@ INSERT INTO `admins` (`id`, `username`, `pwd`, `create_time`, `status`) VALUES
 CREATE TABLE IF NOT EXISTS `open_login` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `user_id` int(11) NOT NULL COMMENT '用户ID',
-  `appid` varchar(255) NOT NULL COMMENT '三方登录APPID',
+  `openid` varchar(255) NOT NULL COMMENT '三方登录openid',
   `type` int(2) NOT NULL COMMENT '登录类型，1-QQ登录，2-微信登录，3-微博登录',
   PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`,`appid`,`type`)
+  KEY `user_id` (`user_id`,`openid`,`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='三方登录关联表' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `status` int(2) NOT NULL DEFAULT '1' COMMENT '状态，1-有效，2-无效，',
   PRIMARY KEY (`id`),
   KEY `username` (`username`,`status`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='用户表' AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='用户表' AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `users`
@@ -81,7 +81,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `username`, `passwd`, `create_time`, `status`) VALUES
 (1, 'test001', 'e10adc3949ba59abbe56e057f20f883e', 1450797529, 1),
 (2, 'test002', 'e10adc3949ba59abbe56e057f20f883e', 1450797529, 1),
-(3, 'test003', 'e10adc3949ba59abbe56e057f20f883e', 1450797529, 1);
+(3, 'test003', 'e10adc3949ba59abbe56e057f20f883e', 1450797529, 1),
+(4, 'test004', '63fc05710ca5f2124f050a8256972790', 1450884115, 1);
 
 -- --------------------------------------------------------
 
