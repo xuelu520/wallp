@@ -39,6 +39,9 @@
 .wpview ul li img{
     width: 180px;
 }
+.ml20{
+    margin-left: 20px;
+}
 .ml140{
     margin-left: 140px;
 }
@@ -54,6 +57,4 @@
 .goToTop a{display:block;width:60px;height:60px;background:url("/public/image/head.png") no-repeat;}
 .goToTop a.toTop:link,.goToTop a.toTop:visited{background-position:-47px -75px;}
 .goToTop a.toTop:hover,.goToTop a.toTop:active{background-position:-117px -75px;}
-
-
 

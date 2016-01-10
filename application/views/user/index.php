@@ -7,7 +7,7 @@ include APPPATH."views/common/top.php";
 		<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
 	</p>
 	<div class="row bs-example">
-		<h1>用户列表
+		<h1>用户列表<span class="ml20">当前在线会员：100人</span>
 			<button class="btn btn-default" id="user-add">
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 			</button>
