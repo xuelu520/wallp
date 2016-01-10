@@ -72,4 +72,10 @@ class User_Model extends CI_Model {
         $sql = "SELECT id FROM ".(self::TABLE_USERS)." WHERE username = '".$username."'";
         return $this->db->query($sql)->row_array();
     }
+
+    /**
+     * 查询当前在线会员
+     */
+    public function online_count() {
+    }
 }
