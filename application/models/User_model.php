@@ -78,4 +78,6 @@ class User_Model extends CI_Model {
      */
     public function online_count() {
     }
+
+
 }
