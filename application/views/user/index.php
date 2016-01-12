@@ -99,7 +99,8 @@ include APPPATH."views/common/top.php";
 </div><!-- /.modal -->
 <script>
 	$(function(){
-		nav('nav-user-index');//nav 高亮选择
+		//nav 高亮选择
+		nav('nav-user-index');
 
 		$('.wg-detail').bind('click',function(){
 			//查询套图壁纸详细数据
