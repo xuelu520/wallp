@@ -138,7 +138,7 @@ include APPPATH."views/common/top.php";
 		//新增用户-modal
 		$('#user-add').bind('click',function() {
 			$('#username').val("");//打开就清空套图名称
-			$('#AddModal').modal('show');
+			$('#AddModal').modal('show');//打开添加用户modal页面
 		});
 
 		//保存套图
